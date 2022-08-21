@@ -25,6 +25,15 @@ const init = async () => {
     console.log(data);
     // console.log(receipt);
 
+
+    // checking below to see if this denies access to private function
+    const receipt2 = await contract.methods.setDataPrivate(30).send({
+        from: addresses[0]
+    });
+
+    const data2 = await contract.methods.getData().call();
+    console.log(data2);
+
 } 
 
 init();
